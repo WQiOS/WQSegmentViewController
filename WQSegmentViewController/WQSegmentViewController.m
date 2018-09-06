@@ -11,7 +11,6 @@
 
 @interface WQSegmentViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, WQSegmentViewDelagate>
 
-@property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, strong) UIPageViewController *pageViewController;
 @property (nonatomic, strong) WQSegmentView *segmentView;
 @property (nonatomic, strong) NSMutableArray *dataSource;

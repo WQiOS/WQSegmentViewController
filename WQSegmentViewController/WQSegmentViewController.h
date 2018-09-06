@@ -11,6 +11,11 @@
 @interface WQSegmentViewController : UIViewController
 
 /**
+ 当前选项卡的位置
+ */
+@property (nonatomic, assign, readonly) NSInteger currentIndex;
+
+/**
  选项卡标题
  */
 @property (nonatomic, strong) NSArray<NSString *> *segmentTitles;
