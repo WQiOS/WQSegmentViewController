@@ -132,10 +132,10 @@
     WQSegmentCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"WQSegmentViewCellID" forIndexPath:indexPath];
     cell.selectedColor = self.selectedColor;
     cell.normalColor = self.normalColor;
-    cell.fontSize = self.fontSize;
     WQSegmentModel *model = [self.dataSources objectAtIndex:indexPath.row];
     cell.title = model.title;
     cell.isSelected = model.selected;
+    cell.fontSize = !model.selected ? self.fontSize : self.fontSize + 2;
     return cell;
 }
 

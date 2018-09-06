@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "WQSegmentViewController"
-s.version      = "0.0.2"
+s.version      = "0.0.3"
 s.summary      = "视图切换的插件，以后渐渐完善她"
 s.homepage     = "https://github.com/WQiOS/WQSegmentViewController"
 s.license      = "MIT"
