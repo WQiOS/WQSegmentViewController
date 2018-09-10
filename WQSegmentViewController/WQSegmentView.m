@@ -78,16 +78,18 @@
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex animation:(BOOL)animation {
-    _selectedIndex = selectedIndex;
-    NSIndexPath *path = [NSIndexPath indexPathForRow:selectedIndex inSection:0];
-    [self moveLineToIndexPath:path animation:YES];
-    [self.collection scrollToItemAtIndexPath:path atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:animation];
-    for (WQSegmentModel *model in self.dataSources) {
-        model.selected = NO;
+    if (self.dataSources.count) {
+        _selectedIndex = selectedIndex;
+        NSIndexPath *path = [NSIndexPath indexPathForRow:selectedIndex inSection:0];
+        [self moveLineToIndexPath:path animation:YES];
+        [self.collection scrollToItemAtIndexPath:path atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:animation];
+        for (WQSegmentModel *model in self.dataSources) {
+            model.selected = NO;
+        }
+        WQSegmentModel *model = [self.dataSources objectAtIndex:selectedIndex];
+        model.selected = YES;
+        [self.collection reloadData];
     }
-    WQSegmentModel *model = [self.dataSources objectAtIndex:selectedIndex];
-    model.selected = YES;
-    [self.collection reloadData];
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
